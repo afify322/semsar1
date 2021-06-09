@@ -18,7 +18,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new AllExceptionsFilter());
   app.enableCors({
-  allowedHeaders: 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe',
+  allowedHeaders: 'X-Requested-With, X-HTTP-Method-Override, Content-Type,Authorization, Accept, Observe',
   methods: "GET,PUT,POST,DELETE,UPDATE,OPTIONS,PATCH",
   credentials: true});
   await app.listen(process.env.PORT || 3000);
