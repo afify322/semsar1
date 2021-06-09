@@ -24,7 +24,7 @@ export class UserController {
     return await this.userService.login(loginDto);
   }
   
-  @UseGuards(AuthGuard(), RolesGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles('admin')
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
@@ -32,31 +32,31 @@ export class UserController {
   }
 
  
-  @UseGuards(AuthGuard(), RolesGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles('admin')
   @Get()
   async findAll() {
     return await this.userService.findAll();
   }
-  @UseGuards(AuthGuard(), RolesGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles('admin')
   @Patch('lock')
   async lockUser(@Param() id: string, @Body() lock: boolean) {
     return await this.userService.lockUser(id, lock);
   }
-  @UseGuards(AuthGuard(), RolesGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles('admin')
   @Get(':id')
   async findOne(@Param('id') id: string) {
     return await this.userService.findOne(id);
   }
-  @UseGuards(AuthGuard(), RolesGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles('admin')
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return await this.userService.update(id, updateUserDto);
   }
-  @UseGuards(AuthGuard(), RolesGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles('admin')
   @Delete(':id')
   async remove(@Param('id') id: string) {
