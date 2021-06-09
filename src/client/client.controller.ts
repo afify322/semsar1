@@ -28,7 +28,7 @@ import { UpdateClientDto } from './dto/update-client.dto';
 import { RolesGuard } from 'src/middleware/RolesGuard';
 import { AuthGuard } from '@nestjs/passport';
 import { Roles } from 'src/middleware/AuthRole';
-@UseGuards(AuthGuard(), RolesGuard)
+@UseGuards(AuthGuard('jwt'), RolesGuard)
 @Controller('client')
 export class ClientController {
   constructor(private readonly clientService: ClientService) {}
