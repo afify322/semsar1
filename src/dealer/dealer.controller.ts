@@ -14,7 +14,7 @@ import { RolesGuard } from 'src/middleware/RolesGuard';
 import { DealerService } from './dealer.service';
 import { CreateDealerDto } from './dto/create-dealer.dto';
 import { UpdateDealerDto } from './dto/update-dealer.dto';
-@UseGuards(AuthGuard(), RolesGuard)
+@UseGuards(AuthGuard('jwt'), RolesGuard)
 @Controller('dealer')
 export class DealerController {
   constructor(private readonly dealerService: DealerService) {}
