@@ -11,7 +11,7 @@ import { UpdateClientDto } from './dto/update-client.dto';
 export class ClientService {
   constructor(@InjectModel(Client.name) private client: Model<ClientDoc>) {}
   async create(createClientDto: CreateClientDto) {
-    const client = await this.client.findOne({ name: createClientDto.name,nationalId:createClientDto.nationalId });
+    const client = await this.client.findOne({nationalId:createClientDto.nationalId });
     if (client) {
       throw new HttpException('هذا العميل موجود', HttpStatus.BAD_REQUEST);
     }
