@@ -14,8 +14,7 @@
       unique:[true,'العميل قام بعميلة بيع من قبل']
     })
     client: string;
-    @Prop({
-    })
+    @Prop({ default: '' })
     dealerName: String;
     @Prop()
     clientName:string
