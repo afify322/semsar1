@@ -12,6 +12,7 @@ import {
   HttpException,
   HttpStatus,
   Query,
+  Put,
   UseGuards
 } from '@nestjs/common';
 import {
@@ -77,7 +78,7 @@ export class ClientController {
     return await this.clientService.findOne(id);
   }
   @Roles('admin')
-  @Patch(':id')
+  @Put(':id')
   async update(
     @Param('id') id: string,
     @Body() updateClientDto: UpdateClientDto,
