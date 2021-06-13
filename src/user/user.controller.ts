@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   UseGuards,
+  Put
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -52,7 +53,7 @@ export class UserController {
   }
   @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles('admin')
-  @Patch(':id')
+  @Put(':id')
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return await this.userService.update(id, updateUserDto);
   }
