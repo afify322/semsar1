@@ -150,7 +150,7 @@ export class TransactionsService {
     );
     const profit = sell - +result.purchaseCash;
     const dealerObj = {
-      name: updateTransactionDto.name,
+      name: updateTransactionDto.dealerName,
       phoneNumber: updateTransactionDto.phoneNumber,
     };
     const dealer = await this.dealer.findByname(dealerObj.name);
