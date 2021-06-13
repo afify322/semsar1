@@ -8,10 +8,9 @@ export class UpdateTransactionDto extends PartialType(CreateTransactionDto) {
   sellCash: number;
   @IsNotEmpty({ message: 'يجب ادخال تاريخ البيع' })
   sellDate: Date;
-  @IsNotEmpty({ message: 'يجب ادخال مبلغ الشراء' })
-  dealer: string;
+
   @IsNotEmpty({ message: 'يجب ادخال اسم التاجر' })
-  name: string;
+  dealerName: string;
   @IsNotEmpty({ message: 'يجب ادخال رقم التليفون ' })
   @Length(9,11,{message:'رقم التليفون غير صحيح'})
   phoneNumber: string;
