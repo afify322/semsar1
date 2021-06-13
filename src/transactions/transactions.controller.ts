@@ -9,6 +9,7 @@ import {
   UseInterceptors,
   UploadedFile,
   Query,
+  Put,
   UseGuards,
 } from '@nestjs/common';
 import { Express } from 'express';
@@ -66,7 +67,7 @@ export class TransactionsController {
   }
   @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles('admin','normal')
-  @Patch(':id')
+  @Put(':id')
   async update(
     @Param('id') id: string,
     @Body() updateTransactionDto: UpdateTransactionDto,
