@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   UseGuards,
+  Put
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Roles } from 'src/middleware/AuthRole';
@@ -34,7 +35,7 @@ export class DealerController {
     return await this.dealerService.findOne(id);
   }
   @Roles('admin')
-  @Patch(':id')
+  @Put(':id')
   async update(
     @Param('id') id: string,
     @Body() updateDealerDto: UpdateDealerDto,
